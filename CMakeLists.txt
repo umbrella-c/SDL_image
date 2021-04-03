@@ -1146,3 +1146,13 @@ string(TOLOWER "${unavail_str}" unavail_str)
 message(STATUS "SDL3_image backends:")
 message(STATUS "- enabled:  ${avail_str}")
 message(STATUS "- disabled: ${unavail_str}")
+
+# Install library headers
+install(FILES SDL_image.h DESTINATION include/SDL2)
+
+# Add a new install target
+install(TARGETS SDL2_image
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+)
