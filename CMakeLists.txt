@@ -234,8 +234,14 @@ if(NOT DEFINED OpenGL_GL_PREFERENCE)
     set(OpenGL_GL_PREFERENCE GLVND)
 endif()
 
+set(ADDITIONAL_SRCS)
+if(VALI)
+    set(ADDITIONAL_SRCS vali_main.c)
+endif()
+
 set(BUILD_SHARED_LIBS ${SDL3IMAGE_BUILD_SHARED_LIBS})
 add_library(${sdl3_image_target_name}
+    ${ADDITIONAL_SRCS}
     src/IMG.c
     src/IMG_WIC.c
     src/IMG_avif.c
